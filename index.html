@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Health Lab | 城市健康空间分析平台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-mark" src="assets/ueee-lab-logo.jpg" alt="UEEE 城市生态与暴露生态学课题组标志">
+        <span class="brand-copy">
+          <strong>城市健康空间分析平台</strong>
+          <small>URBAN ECOLOGY &amp; EXPOSURE ECOLOGY</small>
+        </span>
+      </div>
+      <nav class="main-nav top-main-nav" aria-label="主导航">
+        <button class="nav-item" data-route="dashboard"><span>项目工作台</span></button>
+        <button class="nav-item" data-route="models"><span>模型中心</span></button>
+        <div class="nav-dropdown">
+          <button class="nav-item active" id="labMenuButton" data-nav-route="lab" aria-haspopup="menu" aria-expanded="false"><span>课题组</span></button>
+          <div class="lab-nav-menu" id="labNavMenu" role="menu" hidden>
+            <button role="menuitem" data-lab-target="ueee-about">关于 UEEE</button>
+            <button role="menuitem" data-lab-target="ueee-research">研究方向</button>
+            <button role="menuitem" data-lab-target="ueee-pi">负责人</button>
+            <button role="menuitem" data-lab-target="ueee-work">代表工作</button>
+            <button role="menuitem" data-lab-target="ueee-join">加入我们</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="view operations-view" id="view-dashboard" aria-labelledby="dashboard-title">
+        <div class="page-heading compact-heading">
+          <div><p class="breadcrumb">工作空间 <span>/</span> 项目工作台</p><h1 id="dashboard-title">项目工作台</h1><p>统一管理城市分析项目，并查看模型任务运行状态。</p></div>
+          <div class="page-actions"><button class="primary-action" data-route="models">进入模型中心</button></div>
+        </div>
+        <div class="business-kpis">
+          <article><span>项目总数</span><strong>8</strong><small>本月新增 2 个</small></article>
+          <article><span>分析任务</span><strong>24</strong><small>已完成 21 个</small></article>
+          <article><span>运行中</span><strong>2</strong><small><i class="summary-dot ready"></i>服务状态正常</small></article>
+          <article><span>数据资产</span><strong>36</strong><small>共 18.6 GB</small></article>
+        </div>
+        <div class="dashboard-layout">
+          <section class="business-panel merged-projects">
+            <div class="business-panel-title"><div><h2>全部项目</h2><p>按状态或关键字快速定位城市分析项目</p></div></div>
+            <div class="project-toolbar"><div class="segmented"><button class="segment active">全部项目 <b>8</b></button><button class="segment">进行中 <b>2</b></button><button class="segment">已完成 <b>5</b></button><button class="segment">草稿 <b>1</b></button></div><label class="search-field"><span>⌕</span><input type="search" placeholder="搜索项目名称或城市"></label></div>
+            <div class="project-list-panel">
+              <table class="business-table project-table"><thead><tr><th>项目名称</th><th>城市 / 区域</th><th>分析模型 / 类型</th><th>数据完整度</th><th>任务状态</th><th>更新时间</th><th></th></tr></thead><tbody>
+                <tr><td><strong>上海市健康绿地评估</strong><small>PRJ-2026-008</small></td><td>上海市全域</td><td><strong>15-15 健康绿地评估</strong><small>健康与公平</small></td><td><span class="completeness"><i style="width:100%"></i></span><small>4 / 4</small></td><td><span class="row-status ok">已完成</span></td><td>10 分钟前</td><td><button data-route="analysis">打开</button></td></tr>
+                <tr><td><strong>深圳居民绿地暴露公平评估</strong><small>PRJ-2026-006</small></td><td>深圳市全域</td><td><strong>绿地暴露不平等指数</strong><small>健康与公平</small></td><td><span class="completeness"><i style="width:80%"></i></span><small>4 / 5</small></td><td><span class="row-status running">运行中 68%</span></td><td>今天 09:42</td><td><button data-placeholder="深圳项目详情">查看</button></td></tr>
+                <tr><td><strong>杭州绿地健康效益阈值研究</strong><small>PRJ-2026-003</small></td><td>杭州市中心城区</td><td><strong>绿地暴露健康效益阈值</strong><small>健康与公平</small></td><td><span class="completeness"><i style="width:75%"></i></span><small>3 / 4</small></td><td><span class="row-status draft">准备中</span></td><td>昨天 17:20</td><td><button data-placeholder="杭州项目详情">打开</button></td></tr>
+                <tr><td><strong>武汉生态修复优先区识别</strong><small>PRJ-2025-019</small></td><td>武汉市主城区</td><td><strong>城市生态修复优先区识别</strong><small>生态治理</small></td><td><span class="completeness"><i style="width:100%"></i></span><small>5 / 5</small></td><td><span class="row-status ok">已完成</span></td><td>10 月 21 日</td><td><button data-placeholder="武汉项目详情">打开</button></td></tr>
+                <tr><td><strong>广州极端高温植被降温模拟</strong><small>PRJ-2025-014</small></td><td>广州市中心城区</td><td><strong>极端高温植被降温模拟</strong><small>气候韧性</small></td><td><span class="completeness"><i style="width:100%"></i></span><small>5 / 5</small></td><td><span class="row-status ok">已完成</span></td><td>10 月 12 日</td><td><button data-placeholder="广州项目详情">打开</button></td></tr>
+                <tr><td><strong>南京社区健康绿地评估</strong><small>PRJ-2025-011</small></td><td>南京市中心城区</td><td><strong>15-15 健康绿地评估</strong><small>健康与公平</small></td><td><span class="completeness"><i style="width:100%"></i></span><small>4 / 4</small></td><td><span class="row-status ok">已完成</span></td><td>9 月 28 日</td><td><button data-route="analysis">打开</button></td></tr>
+                <tr><td><strong>成都城市生态修复诊断</strong><small>PRJ-2025-009</small></td><td>成都市五城区</td><td><strong>城市生态修复优先区识别</strong><small>生态治理</small></td><td><span class="completeness"><i style="width:80%"></i></span><small>4 / 5</small></td><td><span class="row-status running">运行中 42%</span></td><td>9 月 16 日</td><td><button data-placeholder="成都项目详情">查看</button></td></tr>
+                <tr><td><strong>北京居民绿地暴露公平评估</strong><small>PRJ-2025-005</small></td><td>北京市六城区</td><td><strong>绿地暴露不平等指数</strong><small>健康与公平</small></td><td><span class="completeness"><i style="width:100%"></i></span><small>5 / 5</small></td><td><span class="row-status ok">已完成</span></td><td>8 月 30 日</td><td><button data-placeholder="北京项目详情">打开</button></td></tr>
+              </tbody></table>
+              <div class="table-footer"><span id="projectCount">显示 1-5 项，共 8 个项目</span><div><button id="projectPrev" disabled>上一页</button><button class="active" data-project-page="1">1</button><button data-project-page="2">2</button><button id="projectNext">下一页</button></div></div>
+            </div>
+          </section>
+          <aside class="business-panel task-monitor">
+            <div class="business-panel-title"><div><h2>任务动态</h2><p>模型计算与数据处理状态</p></div></div>
+            <div class="task-item running"><div><span>深圳绿地暴露公平评估</span><b>68%</b></div><p>正在计算绿地暴露不平等指数</p><i><em style="width:68%"></em></i></div>
+            <div class="task-item"><div><span>上海结果报告</span><b>完成</b></div><p>报告已生成，可下载</p><small>10 分钟前</small></div>
+            <div class="task-item"><div><span>杭州健康阈值数据检查</span><b>待处理</b></div><p>缺少生理健康指标字段映射</p><small>昨天 17:18</small></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="view-models" aria-labelledby="models-title">
+        <div class="page-heading compact-heading">
+          <div>
+            <p class="breadcrumb">工作空间 <span>/</span> 模型中心</p>
+            <h1 id="models-title">模型中心</h1>
+            <p>统一管理城市健康评价模型，创建分析任务并跟踪模型接入状态。</p>
+          </div>
+        </div>
+
+        <div class="model-summary">
+          <div><span>模型总数</span><strong>5</strong><small>覆盖 3 类业务方向</small></div>
+          <div><span>已上线</span><strong>1</strong><small><i class="summary-dot ready"></i>运行状态正常</small></div>
+          <div><span>待接入</span><strong>4</strong><small><i class="summary-dot building"></i>正在进行产品化评估</small></div>
+          <div><span>论文支撑</span><strong>4</strong><small>课题组研究成果</small></div>
+        </div>
+
+        <div class="model-toolbar">
+          <div class="segmented" role="tablist" aria-label="模型分类">
+            <button class="segment active" data-filter="all">全部</button>
+            <button class="segment" data-filter="health">健康与公平</button>
+            <button class="segment" data-filter="ecology">生态治理</button>
+            <button class="segment" data-filter="climate">气候韧性</button>
+          </div>
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input id="modelSearch" type="search" placeholder="搜索模型">
+          </label>
+        </div>
+
+        <div class="model-grid" id="modelGrid">
+          <article class="model-card featured" data-category="health" data-name="15-15 健康绿地 可达性 暴露公平">
+            <div class="model-visual fifteen-visual">
+              <span class="visual-number">15</span>
+              <span class="visual-divider"></span>
+              <span class="visual-number">15</span>
+              <div class="visual-route"></div>
+            </div>
+            <div class="model-content">
+              <div class="card-meta"><span class="status ready">可用</span><span>健康与公平 · 绿地服务</span></div>
+              <h2>15-15 健康绿地评估</h2>
+              <p>判断居民能否在 15 分钟内到达一处可支持 15 分钟有效暴露的城市绿地。</p>
+              <dl class="model-facts">
+                <div><dt>输入</dt><dd>4 类空间数据</dd></div>
+                <div><dt>输出</dt><dd>达标率与空间缺口</dd></div>
+              </dl>
+              <button class="primary-btn" data-route="analysis">进入模型 <span>→</span></button>
+            </div>
+          </article>
+
+          <article class="model-card placeholder" data-category="health" data-name="GEII 居民绿地暴露不平等指数 可用性 可达性 基尼系数">
+            <div class="model-icon equity-icon">GEII</div>
+            <div class="card-meta"><span class="status planned">计划接入</span><span>健康与公平</span></div>
+            <h2>绿地暴露不平等指数</h2>
+            <p>综合绿地可用性、距离可达性与基尼系数，量化居民绿地暴露机会及其空间不平等。</p>
+            <button class="secondary-btn disabled-model">查看模型规划</button>
+          </article>
+
+          <article class="model-card placeholder" data-category="health" data-name="绿地暴露 生理健康效率 健康效益阈值 典型城市景观">
+            <div class="model-icon health-icon">H+</div>
+            <div class="card-meta"><span class="status planned">计划接入</span><span>健康与公平</span></div>
+            <h2>绿地暴露健康效益阈值</h2>
+            <p>量化典型城市景观中绿地暴露的生理健康效率，识别健康收益开始趋稳的暴露阈值。</p>
+            <button class="secondary-btn disabled-model">查看模型规划</button>
+          </article>
+
+          <article class="model-card placeholder" data-category="ecology" data-name="机器学习 多维诊断 城市生态修复 优先区识别">
+            <div class="model-icon restoration-icon">ML</div>
+            <div class="card-meta"><span class="status planned">计划接入</span><span>生态治理</span></div>
+            <h2>城市生态修复优先区识别</h2>
+            <p>融合机器学习与多维诊断框架，识别生态退化特征并划定城市生态修复优先区域。</p>
+            <button class="secondary-btn disabled-model">查看模型规划</button>
+          </article>
+
+          <article class="model-card placeholder" data-category="climate" data-name="SCOPE-SEB 极端高温 城市植被 蒸散 遮荫 降温 跨气候带">
+            <div class="model-icon climate-icon">S-E</div>
+            <div class="card-meta"><span class="status planned">计划接入</span><span>气候韧性</span></div>
+            <h2>极端高温植被降温模拟</h2>
+            <p>基于 SCOPE-SEB 模型，对比不同气候带中城市植被蒸散与遮荫降温的贡献。</p>
+            <button class="secondary-btn disabled-model">查看模型规划</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="view model-workflow" id="view-analysis" aria-labelledby="analysis-title">
+        <header class="workflow-header">
+          <div class="workflow-heading">
+            <button class="back-button" data-route="models" aria-label="返回模型中心">←</button>
+            <div>
+              <small class="workflow-breadcrumb">模型中心 <span>/</span> 可达性模型 <span>/</span> 15-15</small>
+              <h1 id="analysis-title">15-15 健康绿地评估</h1>
+            </div>
+          </div>
+          <nav class="workflow-steps" aria-label="分析流程">
+            <button class="workflow-step active" data-workflow-step="setup"><span>1</span><div><strong>创建分析</strong><small>项目与数据</small></div></button>
+            <button class="workflow-step" data-workflow-step="inspect"><span>2</span><div><strong>数据检查</strong><small>字段与质量</small></div></button>
+            <button class="workflow-step" data-workflow-step="parameters"><span>3</span><div><strong>参数配置</strong><small>计算口径</small></div></button>
+            <button class="workflow-step" data-workflow-step="processing"><span>4</span><div><strong>运行分析</strong><small>处理进度</small></div></button>
+            <button class="workflow-step" data-workflow-step="results"><span>5</span><div><strong>结果与报告</strong><small>地图与下载</small></div></button>
+          </nav>
+        </header>
+
+        <div class="analysis-console">
+          <aside class="dataset-panel">
+            <div class="dataset-tabs"><button class="active" data-dataset-tab="layers">图层列表</button><button data-dataset-tab="properties">数据属性</button></div>
+            <div class="dataset-tree" data-dataset-panel="layers">
+              <section><h3><span>⌄</span> 输入数据 <b id="datasetReadyCount">0/4</b></h3>
+                <label data-dataset-key="boundary"><input type="checkbox" checked><i class="shape polygon"></i><span>研究范围<small>等待上传</small></span></label>
+                <label data-dataset-key="residential"><input type="checkbox" checked><i class="shape point"></i><span>住宅区 / 需求点<small>等待上传</small></span></label>
+                <label data-dataset-key="green"><input type="checkbox" checked><i class="shape polygon green"></i><span>城市绿地 AOI<small>等待上传</small></span></label>
+                <label data-dataset-key="road"><input type="checkbox" checked><i class="shape line"></i><span>步行道路网络<small>等待上传</small></span></label>
+              </section>
+              <section><h3><span>›</span> 中间结果 <b id="intermediateCount">0</b></h3><label class="disabled" data-generated-layer="qualified-green"><input type="checkbox" disabled><i class="shape polygon"></i><span>合格绿地<small>分析后生成</small></span></label><label class="disabled" data-generated-layer="residential-result"><input type="checkbox" disabled><i class="shape point"></i><span>住宅区判定<small>分析后生成</small></span></label></section>
+              <section><h3><span>›</span> 输出成果 <b id="outputCount">0</b></h3><label class="disabled" data-generated-layer="report"><input type="checkbox" disabled><i class="shape table-shape"></i><span>指标与报告<small>分析后生成</small></span></label></section>
+            </div>
+            <div class="dataset-properties" data-dataset-panel="properties" hidden>
+              <div class="property-heading"><span>当前图层</span><strong id="propertyLayerName">研究范围</strong><small id="propertyFileName">等待上传</small></div>
+              <dl class="property-summary"><div><dt>几何类型</dt><dd id="propertyGeometry">MultiPolygon</dd></div><div><dt>记录数</dt><dd id="propertyRecords">16</dd></div><div><dt>坐标系</dt><dd id="propertyCrs">EPSG:32651</dd></div></dl>
+              <div class="property-fields"><div class="property-fields-title"><strong>字段结构</strong><span id="propertyFieldCount">3 个字段</span></div><div id="propertyFieldList"></div></div>
+            </div>
+          </aside>
+
+          <div class="analysis-main">
+            <div class="workflow-body">
+          <section class="workflow-panel active" data-panel="setup">
+            <div class="panel-heading">
+              <div><p class="eyebrow">STEP 01</p><h2>创建分析并上传数据</h2><p>建立一个城市分析项目，并上传完成 15-15 评估所需的四类基础空间数据。</p></div>
+              <button class="demo-data-button" id="loadDemoData"><span>▶</span><div><strong>一键载入上海数据</strong><small>快速填充标准分析数据</small></div></button>
+            </div>
+
+            <div class="project-form">
+              <label><span>分析项目名称</span><input id="projectName" type="text" placeholder="例如：南京市中心城区 15-15 评估"></label>
+              <label><span>城市 / 研究区域</span><input id="cityName" type="text" placeholder="例如：南京市"></label>
+              <label><span>计算坐标系</span><select id="projectCrs"><option value="auto">自动识别并推荐</option><option>CGCS2000 / 3-degree Gauss-Kruger</option><option>WGS 84 / UTM</option></select></label>
+            </div>
+
+            <div class="upload-heading"><div><h3>基础空间数据</h3><p>支持 ZIP Shapefile、GeoJSON 和 GeoPackage。单文件建议不超过 500 MB。</p></div><span id="uploadCounter">0 / 4 已就绪</span></div>
+            <div class="upload-grid">
+              <article class="upload-card" data-upload-key="boundary">
+                <div class="upload-number">01</div><div class="upload-title"><h3>研究范围</h3><span class="required">必填</span></div>
+                <p>定义分析边界，并用于裁剪其他数据。</p>
+                <div class="upload-spec"><span>Polygon / MultiPolygon</span><span>.zip · .geojson · .gpkg</span></div>
+                <label class="file-button"><input type="file" accept=".zip,.geojson,.json,.gpkg"><span>选择文件</span></label>
+                <div class="file-state"><i></i><span>等待上传</span><button aria-label="移除文件">×</button></div>
+              </article>
+              <article class="upload-card" data-upload-key="residential">
+                <div class="upload-number">02</div><div class="upload-title"><h3>住宅区 / 需求点</h3><span class="required">必填</span></div>
+                <p>每个点表示一个住宅区或居民需求单元。</p>
+                <div class="upload-spec"><span>Point</span><span>人口 / 户数字段可选</span></div>
+                <label class="file-button"><input type="file" accept=".zip,.geojson,.json,.gpkg"><span>选择文件</span></label>
+                <div class="file-state"><i></i><span>等待上传</span><button aria-label="移除文件">×</button></div>
+              </article>
+              <article class="upload-card" data-upload-key="green">
+                <div class="upload-number">03</div><div class="upload-title"><h3>城市绿地 AOI</h3><span class="required">必填</span></div>
+                <p>用于计算绿地面积与有效暴露潜力。</p>
+                <div class="upload-spec"><span>Polygon / MultiPolygon</span><span>类型字段建议提供</span></div>
+                <label class="file-button"><input type="file" accept=".zip,.geojson,.json,.gpkg"><span>选择文件</span></label>
+                <div class="file-state"><i></i><span>等待上传</span><button aria-label="移除文件">×</button></div>
+              </article>
+              <article class="upload-card" data-upload-key="road">
+                <div class="upload-number">04</div><div class="upload-title"><h3>步行道路网络</h3><span class="required">必填</span></div>
+                <p>用于建立拓扑并计算真实步行路径。</p>
+                <div class="upload-spec"><span>LineString / MultiLineString</span><span>道路类型字段建议提供</span></div>
+                <label class="file-button"><input type="file" accept=".zip,.geojson,.json,.gpkg"><span>选择文件</span></label>
+                <div class="file-state"><i></i><span>等待上传</span><button aria-label="移除文件">×</button></div>
+              </article>
+            </div>
+            <div class="panel-actions"><span>所有文件仅用于本次分析任务</span><button class="primary-action" id="toInspect" disabled>下一步：检查数据 →</button></div>
+          </section>
+
+          <section class="workflow-panel" data-panel="inspect">
+            <div class="panel-heading"><div><p class="eyebrow">STEP 02</p><h2>数据检查与字段映射</h2><p>确认几何类型、坐标系和关键字段。平台将在计算前自动修复常见数据问题。</p></div><div class="quality-score"><strong id="qualityScore">96</strong><span>数据质量评分</span></div></div>
+            <div class="inspection-summary">
+              <article><span class="check-icon">✓</span><div><strong>坐标系统可用</strong><small>4 个图层将统一至 EPSG:32651</small></div></article>
+              <article><span class="check-icon">✓</span><div><strong>几何类型匹配</strong><small>点、面、线数据符合模型要求</small></div></article>
+              <article><span class="warning-icon">!</span><div><strong>发现可修复问题</strong><small>9 个绿地几何将在预处理中修复</small></div></article>
+            </div>
+            <div class="mapping-table-wrap">
+              <table class="mapping-table">
+                <thead><tr><th>数据图层</th><th>记录数</th><th>唯一 ID</th><th>名称字段</th><th>模型关键字段</th><th>状态</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>研究范围</strong><small>Polygon</small></td><td>16</td><td><select><option>OBJECTID</option></select></td><td><select><option>行政区</option></select></td><td><span class="not-needed">无需映射</span></td><td><span class="row-status ok">通过</span></td></tr>
+                  <tr><td><strong>住宅区</strong><small>Point</small></td><td>18,770</td><td><select><option>OID_</option></select></td><td><select><option>小区</option></select></td><td><label class="compact-field">需求量<select><option>总户数</option><option>不使用</option></select></label></td><td><span class="row-status ok">通过</span></td></tr>
+                  <tr><td><strong>绿地 AOI</strong><small>Polygon</small></td><td>47,628</td><td><select><option>OBJECTID</option></select></td><td><select><option>NAME</option></select></td><td><label class="compact-field">绿地类型<select><option>S_CLASS</option><option>不使用</option></select></label></td><td><span class="row-status warn">可修复</span></td></tr>
+                  <tr><td><strong>道路网络</strong><small>LineString</small></td><td>58,696</td><td><select><option>OBJECTID</option></select></td><td><span class="not-needed">无需映射</span></td><td><label class="compact-field">道路类型<select><option>Type</option><option>不使用</option></select></label></td><td><span class="row-status ok">通过</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="preprocess-options">
+              <label><input type="checkbox" checked><span><strong>自动修复无效几何</strong><small>使用标准几何修复方法处理自相交等问题</small></span></label>
+              <label><input type="checkbox" checked><span><strong>统一计算坐标系</strong><small>自动投影到适合研究区域的米制坐标系</small></span></label>
+              <label><input type="checkbox" checked><span><strong>剔除不适宜步行道路</strong><small>根据道路类型字段过滤快速路等路段</small></span></label>
+            </div>
+            <div class="panel-actions"><button class="text-action" data-go-step="setup">← 返回上传</button><button class="primary-action" data-go-step="parameters">确认映射并继续 →</button></div>
+          </section>
+
+          <section class="workflow-panel" data-panel="parameters">
+            <div class="panel-heading"><div><p class="eyebrow">STEP 03</p><h2>设置分析参数</h2><p>默认采用论文基准值。参数可按城市环境、目标人群和研究目的调整。</p></div><button class="outline-btn" id="resetParams">恢复论文默认值</button></div>
+            <div class="parameter-layout">
+              <div class="parameter-groups">
+                <section class="parameter-group"><div class="group-heading"><span>01</span><div><h3>外部可达性</h3><p>住宅区到合格绿地的道路网络步行条件</p></div></div>
+                  <label class="range-control"><span>最大步行时间 <output id="accessOutput">15 分钟</output></span><input id="accessRange" type="range" min="5" max="30" value="15" step="1"><small>对应基准最大路网距离 1,000 m</small></label>
+                  <label class="range-control"><span>外部步行速度 <output id="speedOutput">4.0 km/h</output></span><input id="speedRange" type="range" min="2.5" max="6" value="4" step="0.1"></label>
+                </section>
+                <section class="parameter-group"><div class="group-heading"><span>02</span><div><h3>绿地有效暴露</h3><p>判断绿地是否具备支持有效暴露的空间潜力</p></div></div>
+                  <label class="range-control"><span>有效暴露时间 <output id="exposureOutput">15 分钟</output></span><input id="exposureRange" type="range" min="5" max="30" value="15" step="1"></label>
+                  <label class="range-control"><span>移动暴露时间占比 <output id="shareOutput">50%</output></span><input id="shareRange" type="range" min="20" max="80" value="50" step="5"></label>
+                  <label class="range-control"><span>绿地内部步行速度 <output id="internalSpeedOutput">3.17 km/h</output></span><input id="internalSpeedRange" type="range" min="2" max="5" value="3.17" step="0.01"></label>
+                </section>
+              </div>
+              <aside class="parameter-summary"><p class="eyebrow">CALCULATED THRESHOLD</p><span>最低有效绿地面积</span><strong id="areaThreshold">1.39<em> ha</em></strong><p>根据移动暴露时间、园内步行速度和内部路径密度动态计算。</p><dl><div><dt>绿地目的点</dt><dd>AOI 几何质心</dd></div><div><dt>内部路径密度</dt><dd>285 m/ha</dd></div><div><dt>路网吸附上限</dt><dd>500 m</dd></div></dl><button id="methodButton" class="secondary-btn">查看计算口径</button></aside>
+            </div>
+            <div class="panel-actions"><button class="text-action" data-go-step="inspect">← 返回数据检查</button><button class="primary-action" data-go-step="processing">保存参数并准备运行 →</button></div>
+          </section>
+
+          <section class="workflow-panel" data-panel="processing">
+            <div class="processing-layout">
+              <div class="processing-main">
+                <p class="eyebrow">STEP 04</p><h2>运行 15-15 分析</h2><p>平台将依次完成数据预处理、有效绿地识别、路网构建和住宅区可达性计算。</p>
+                <div class="run-summary"><div><span>分析区域</span><strong id="runCity">上海市</strong></div><div><span>住宅区</span><strong>18,770</strong></div><div><span>绿地 AOI</span><strong>47,628</strong></div><div><span>道路</span><strong>58,696</strong></div></div>
+                <div class="progress-card">
+                  <div class="progress-top"><strong id="progressTitle">准备运行</strong><span id="progressPercent">0%</span></div>
+                  <div class="progress-track"><i id="progressBar"></i></div>
+                  <div class="processing-stages">
+                    <div data-stage="0"><i></i><span>数据清洗与坐标统一</span><small>几何修复、范围筛选</small></div>
+                    <div data-stage="1"><i></i><span>绿地暴露潜力计算</span><small>面积阈值与合格绿地</small></div>
+                    <div data-stage="2"><i></i><span>步行路网拓扑构建</span><small>节点、边与点位吸附</small></div>
+                    <div data-stage="3"><i></i><span>15 分钟可达性计算</span><small>最短路径与住宅判定</small></div>
+                    <div data-stage="4"><i></i><span>结果汇总与报告生成</span><small>地图、指标与导出文件</small></div>
+                  </div>
+                </div>
+                <button class="run-large-button" id="runAnalysis"><span>开始运行分析</span><small>预计约需 8 秒</small></button>
+              </div>
+            </div>
+          </section>
+
+          <section class="workflow-panel results-panel" data-panel="results">
+            <div class="result-toolbar">
+              <div><span class="result-badge">分析完成</span><strong id="resultProjectName">上海市 15-15 健康绿地评估</strong><small>基准情景 · AOI 质心口径</small></div>
+              <div><button class="outline-btn" id="newAnalysis">新建分析</button><button class="primary-action" id="downloadReport">下载分析报告</button></div>
+            </div>
+            <div class="result-tabs" role="tablist"><button class="active" data-result-tab="overview">结果总览</button><button data-result-tab="data">数据表</button><button data-result-tab="downloads">下载中心</button></div>
+            <div class="result-tab-panel active" data-result-panel="overview">
+              <div class="metrics-row">
+                <article><span>社区达标率</span><strong>78.25<em>%</em></strong><small>14,688 / 18,770</small></article>
+                <article><span>户数代理达标率</span><strong>80.22<em>%</em></strong><small>约 759.9 万户次</small></article>
+                <article><span>合格绿地</span><strong>4,997</strong><small>占绿地 AOI 10.51%</small></article>
+                <article><span>有效面积阈值</span><strong>1.39<em> ha</em></strong><small>论文基准参数</small></article>
+              </div>
+              <div class="result-content-grid">
+                <div class="map-stage" id="mapStage">
+                  <div class="map-images"><img id="layer-base" src="assets/map-base.png" alt="上海道路与行政区地图"><img id="layer-green" src="assets/map-green.png" alt="合格绿地分布"><img id="layer-residential" src="assets/map-residential.png" alt="住宅区达标分布"></div>
+                  <div class="map-overlay-header"><div class="map-legend"><span><i class="legend-dot pass"></i>达标</span><span><i class="legend-dot fail"></i>未达标</span><span><i class="legend-dot green"></i>合格绿地</span></div><button class="map-info" id="fullscreenButton" aria-pressed="false">全屏地图</button></div>
+                  <div class="map-zoom"><button aria-label="放大">＋</button><button aria-label="缩小">−</button></div><div class="map-scale">20 km</div>
+                </div>
+                <aside class="result-sidebar">
+                  <section><div class="section-title"><h3>地图图层</h3></div><label><span><i class="legend-dot green"></i>合格绿地</span><input type="checkbox" data-layer="green" checked></label><label><span><i class="legend-dot pass"></i>住宅区结果</span><input type="checkbox" data-layer="residential" checked></label><label><span><i class="legend-line"></i>道路与边界</span><input type="checkbox" data-layer="base" checked></label></section>
+                  <section><div class="section-title"><h3>分区达标率</h3></div><div class="zone-bar"><span>城市中心 <b>79.02%</b></span><i style="--value:79.02%"></i></div><div class="zone-bar"><span>郊区 <b>79.42%</b></span><i style="--value:79.42%"></i></div><div class="zone-bar"><span>远郊 <b>74.02%</b></span><i style="--value:74.02%"></i></div></section>
+                  <section class="finding"><span>主要发现</span><p>约 21.75% 的住宅区尚未满足 15-15 规则，空间缺口主要分布在外围区域。</p></section>
+                </aside>
+              </div>
+            </div>
+            <div class="result-tab-panel" data-result-panel="data"><div class="data-preview-heading"><div><h3>住宅区评估结果</h3><p>展示前 6 条记录，共 18,770 条。</p></div><label class="search-field"><span>⌕</span><input placeholder="搜索住宅区"></label></div><table class="result-table"><thead><tr><th>住宅区</th><th>所属区域</th><th>最近合格绿地</th><th>路网距离</th><th>步行时间</th><th>判定</th></tr></thead><tbody><tr><td>金龙大厦</td><td>黄浦区</td><td>人民公园</td><td>632 m</td><td>9.5 min</td><td><span class="row-status ok">达标</span></td></tr><tr><td>大木小区</td><td>徐汇区</td><td>襄阳公园</td><td>824 m</td><td>12.4 min</td><td><span class="row-status ok">达标</span></td></tr><tr><td>虹桥花苑</td><td>长宁区</td><td>中山公园</td><td>945 m</td><td>14.2 min</td><td><span class="row-status ok">达标</span></td></tr><tr><td>嘉定社区 A</td><td>嘉定区</td><td>—</td><td>&gt;1,000 m</td><td>—</td><td><span class="row-status fail">未达标</span></td></tr><tr><td>松江社区 B</td><td>松江区</td><td>—</td><td>&gt;1,000 m</td><td>—</td><td><span class="row-status fail">未达标</span></td></tr><tr><td>浦东社区 C</td><td>浦东新区</td><td>社区公园</td><td>716 m</td><td>10.7 min</td><td><span class="row-status ok">达标</span></td></tr></tbody></table></div>
+            <div class="result-tab-panel" data-result-panel="downloads"><div class="download-grid"><article><span class="download-icon">HTML</span><div><h3>综合分析报告</h3><p>项目概况、方法参数、核心指标、地图和结论摘要。</p><small>HTML · 可打印为 PDF</small></div><button data-download="report">下载</button></article><article><span class="download-icon">CSV</span><div><h3>住宅区评估结果</h3><p>每个住宅区的达标状态、最近绿地、距离和步行时间。</p><small>CSV · 18,770 条</small></div><button data-download="residential">下载</button></article><article><span class="download-icon">GPKG</span><div><h3>空间结果数据包</h3><p>住宅结果、合格绿地、研究边界和关键字段。</p><small>空间图层清单</small></div><button data-download="spatial">下载</button></article><article><span class="download-icon">JSON</span><div><h3>运行参数与摘要</h3><p>参数配置、数据质量和统计指标。</p><small>JSON · 可复现记录</small></div><button data-download="summary">下载</button></article></div></div>
+          </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view active lab-view ueee-page" id="view-lab" aria-labelledby="lab-title">
+        <div class="ueee-hero">
+          <img src="assets/lab-hero.png" alt="城市生态与绿色基础设施空间研究图景">
+          <div class="ueee-hero-shade"></div>
+          <div class="ueee-hero-content">
+            <p class="ueee-kicker">FUDAN UNIVERSITY · ENVIRONMENTAL SCIENCE</p>
+            <h1 id="lab-title">UEEE</h1>
+            <h2>城市生态与暴露生态学课题组</h2>
+            <p>Urban Ecology & Exposure Ecology Group</p>
+            <div class="ueee-hero-actions"><a href="#ueee-research">研究方向</a><a href="#ueee-pi">课题组负责人</a><button data-route="models">进入模型平台 →</button></div>
+          </div>
+          <div class="ueee-hero-meta"><span>复旦大学</span><span>环境科学与工程系</span><span>上海 · 江湾校区</span></div>
+        </div>
+
+        <div class="ueee-content">
+          <section class="ueee-about" id="ueee-about">
+            <div class="section-index"><span>01</span><small>ABOUT UEEE</small></div>
+            <div class="ueee-about-copy"><p class="eyebrow">OUR MISSION</p><h2>理解城市环境如何塑造居民的生态暴露与健康。</h2><p>UEEE 课题组聚焦城市生态系统、人群环境暴露与气候变化之间的联系，综合应用地理信息系统、环境遥感、空间统计、现场观测与模型分析，探索城市蓝绿空间的生态效应、健康效益与公平配置。</p><p>我们希望把城市生态研究从“识别问题”推进到“支持决策”，将可解释、可复现的研究方法转化为规划工具与基于自然的解决方案。</p></div>
+            <div class="ueee-facts"><div><strong>4</strong><span>核心研究方向</span></div><div><strong>GIS + RS</strong><span>空间证据方法</span></div><div><strong>Research → Action</strong><span>面向规划实践</span></div></div>
+          </section>
+
+          <section class="ueee-research" id="ueee-research">
+            <div class="section-heading"><div><p class="eyebrow">02 · RESEARCH</p><h2>研究方向</h2></div><p>从城市生态过程、居民暴露到规划干预，建立跨尺度的研究链条。</p></div>
+            <div class="ueee-research-grid">
+              <article><span>01</span><small>URBAN ECOLOGY</small><h3>城市生态学</h3><p>研究城市化背景下蓝绿空间格局、生态过程与生态系统服务的变化。</p><b>城市绿地 · 生态系统服务 · 空间格局</b></article>
+              <article><span>02</span><small>EXPOSURE ECOLOGY</small><h3>暴露生态学</h3><p>关注居民接触自然环境的机会、强度、持续时间及其潜在健康效应。</p><b>绿地暴露 · 人群健康 · 环境公平</b></article>
+              <article><span>03</span><small>URBAN CLIMATE</small><h3>城市气候与遥感</h3><p>利用多源遥感和地面观测识别城市热环境及植被降温效应的时空规律。</p><b>热环境 · 环境遥感 · 气候适应</b></article>
+              <article><span>04</span><small>NATURE-BASED SOLUTIONS</small><h3>基于自然的解决方案</h3><p>将生态过程与空间规划结合，为健康、韧性和公平的城市转型提供方案。</p><b>NbS · 规划优化 · 健康城市</b></article>
+            </div>
+          </section>
+
+          <section class="ueee-pi" id="ueee-pi">
+            <div class="pi-photo"><img src="assets/yu-zhaowu.jpg" alt="余兆武研究员"><span>PRINCIPAL INVESTIGATOR · 01</span></div>
+            <div class="pi-profile">
+              <p class="eyebrow">课题组负责人 · PRINCIPAL INVESTIGATOR</p>
+              <h2>余兆武 <small>Zhaowu Yu</small></h2>
+              <h3>复旦大学环境科学与工程系青年研究员、博士生导师</h3>
+              <p>主要从事城市生态学、暴露生态学、基于自然的解决方案、环境遥感与气候变化相关研究与教学。博士毕业于哥本哈根大学地球科学与自然资源管理系，曾任哥本哈根大学博士后与助理教授。</p>
+              <p>入选上海市领军人才青年项目、上海浦江学者、中国生态学学会“生态学青年人才托举工程”及仲英青年学者等人才计划。</p>
+              <div class="pi-links"><a href="mailto:zhaowu_yu@fudan.edu.cn">邮件联系 ↗</a><a href="https://environment.fudan.edu.cn/b6/a3/c26241a308899/page.htm" target="_blank" rel="noreferrer">复旦教师主页 ↗</a></div>
+              <dl class="pi-stats"><div><dt>70+</dt><dd>第一 / 通讯作者论文</dd></div><div><dt>13</dt><dd>ESI 高被引论文</dd></div><div><dt>10+</dt><dd>主持科研项目</dd></div></dl>
+            </div>
+          </section>
+
+          <section class="ueee-trajectory">
+            <div class="section-heading"><div><p class="eyebrow">03 · APPROACH</p><h2>从生态过程到健康城市决策</h2></div><p>跨越“环境测度—人群暴露—健康效应—规划响应”的研究路径。</p></div>
+            <div class="trajectory-steps"><div><span>01</span><strong>城市环境测度</strong><small>遥感、传感器与空间数据</small></div><i>→</i><div><span>02</span><strong>生态暴露评估</strong><small>可获得性、可达性与有效暴露</small></div><i>→</i><div><span>03</span><strong>健康与公平分析</strong><small>效应阈值、群体差异与空间不平等</small></div><i>→</i><div><span>04</span><strong>规划与 NbS</strong><small>模型工具、情景模拟与优化决策</small></div></div>
+          </section>
+
+          <section class="ueee-work" id="ueee-work">
+            <div class="section-heading"><div><p class="eyebrow">04 · FEATURED WORK</p><h2>代表工作</h2></div><a href="https://environment.fudan.edu.cn/b6/a3/c26241a308899/page.htm" target="_blank" rel="noreferrer">查看更多成果 ↗</a></div>
+            <article class="featured-work"><div class="featured-work-mark"><strong>15</strong><i></i><strong>15</strong></div><div><span>HEALTHY CITIES · 2026</span><h3>健康城市“双 15 分钟”规划模型</h3><p>将绿地外部步行可达性与绿地内部有效暴露潜力整合为可操作的主客体模型，为城市绿地健康效益评估与空间规划提供统一尺度。</p><button data-route="analysis">体验 15-15 模型 →</button></div></article>
+            <div class="selected-work-grid">
+              <article><span>2025 · npj Urban Sustainability</span><h3>中国城市绿地暴露不平等研究</h3><p>关注城市绿化变化与居民绿地暴露不平等之间的关系。</p></article>
+              <article><span>2023 · Ecological Indicators</span><h3>居民绿地暴露不平等指标</h3><p>提出简洁且可操作的指标，用于量化居民获得绿地暴露机会的不平等。</p></article>
+              <article><span>2026 · Remote Sensing of Environment</span><h3>城市植被降温跨气候区量化</h3><p>分析极端高温下植被蒸腾与遮荫降温效应的气候依赖性。</p></article>
+            </div>
+          </section>
+
+          <section class="ueee-experience">
+            <div><p class="eyebrow">05 · EXPERIENCE</p><h2>教育与任职</h2></div>
+            <ol><li><time>2020.12 — 至今</time><div><strong>复旦大学环境科学与工程系</strong><span>青年研究员、博士生导师</span></div></li><li><time>2019.08 — 2020.12</time><div><strong>哥本哈根大学</strong><span>助理教授、博士生导师</span></div></li><li><time>2018.05 — 2019.07</time><div><strong>哥本哈根大学</strong><span>博士后</span></div></li><li><time>2015.09 — 2018.05</time><div><strong>哥本哈根大学</strong><span>地球科学与自然资源管理系博士</span></div></li></ol>
+          </section>
+
+          <section class="ueee-join" id="ueee-join">
+            <div><p class="eyebrow light">JOIN UEEE</p><h2>与我们一起研究城市、生态与健康。</h2><p>欢迎具有遥感、地理信息系统、生态学、环境科学、景观与规划等背景的本科生、硕士生、博士生及博士后联系团队。</p></div>
+            <div><a href="mailto:zhaowu_yu@fudan.edu.cn">zhaowu_yu@fudan.edu.cn ↗</a><span>复旦大学环境科学与工程系</span><small>上海市淞沪路 2005 号 · 江湾校区</small></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><h2 id="modalTitle">操作说明</h2><button id="modalClose" aria-label="关闭">×</button></div>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
